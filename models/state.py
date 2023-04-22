@@ -2,7 +2,7 @@
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from models.base_model import BaseModel, Base
-from models import storage_type
+from . import storage_type
 from models.city import City
 
 
@@ -11,6 +11,8 @@ class State(BaseModel, Base):
     if storage_type == 'db':
     	  name = Column(String(128), nullable=False)
     	  cities = relationship("City", backref="state", cascade="all, delete-orphan")
+    else:
+        name = ''
 
     @property
     def cities(self):
@@ -21,6 +23,3 @@ class State(BaseModel, Base):
                 if city.state_id == self.id:
                     related_cities.append(city)
             return related_cities
-
-   else:
-        name = ''

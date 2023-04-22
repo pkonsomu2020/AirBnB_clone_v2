@@ -3,7 +3,8 @@
 Initialize models package
 """
 
-import os import getenv
+import os
+from os import getenv
 
 storage_type = getenv('HBNB_TYPE_STORAGE')
 

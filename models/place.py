@@ -2,8 +2,9 @@
 
 from models.base_model import BaseModel, Base
 import sqlalchemy
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Integer, Float, ForeignKey
 from sqlalchemy.orm import relationship
+import os
 
 class Place(BaseModel, Base):
     __tablename__ = 'places'
